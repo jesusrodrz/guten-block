@@ -66,6 +66,8 @@
 
 .c-accordion__title {
   padding-right: 2.5rem;
+  position: relative;
+  z-index: 1;
   cursor: pointer;
 }
 
