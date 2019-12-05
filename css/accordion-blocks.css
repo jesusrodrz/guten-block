@@ -1,6 +1,9 @@
 .no-js .c-accordion__content {
   display: block !important;
 }
+.c-accordion__content {
+  margin-top: 10px;
+}
 .no-js .c-accordion__title {
   padding-right: none;
   cursor: default;
