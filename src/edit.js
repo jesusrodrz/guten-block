@@ -14,7 +14,13 @@ const {
   InnerBlocks
 } = wp.blockEditor;
 
-const { PanelBody, Toolbar, ToggleControl, RangeControl } = wp.components;
+const {
+  PanelBody,
+  Toolbar,
+  ToggleControl,
+  RangeControl,
+  ColorPicker
+} = wp.components;
 
 /**
  * Internal dependencies
@@ -35,13 +41,19 @@ const AccordionItemEdit = ({
     titleTag,
     scroll,
     scrollOffset,
-    uuid
+    uuid,
+    buttonIconColor,
+    buttonBgColor,
+    buttonBorderColor
   } = attributes;
 
   setAttributes({
     uuid: instanceId
   });
-
+  function getRGBA({ rgb }) {
+    const { r, g, b, a } = rgb;
+    return `rgba(${r},${g},${b},${a})`;
+  }
   var titleClasses = ['c-accordion__title'];
 
   if (titleTag === 'button') {
@@ -126,17 +138,67 @@ const AccordionItemEdit = ({
             max={1000}
             help={__('A pixel offset for the final scroll position.', 'pb')}
           />
+          <div>
+            <p>{__('Color del icono', 'pb')}</p>
+            <ColorPicker
+              color={buttonIconColor}
+              onChangeComplete={value =>
+                setAttributes({ buttonIconColor: getRGBA(value) })
+              }
+            />
+          </div>
+          <div>
+            <p>{__('Color de fondo del icono', 'pb')}</p>
+            <ColorPicker
+              color={buttonBgColor}
+              onChangeComplete={value =>
+                setAttributes({ buttonBgColor: getRGBA(value) })
+              }
+            />
+          </div>
+          <div>
+            <p>{__('Color de borde del icono', 'pb')}</p>
+            <ColorPicker
+              color={buttonBorderColor}
+              onChangeComplete={value =>
+                setAttributes({ buttonBorderColor: getRGBA(value) })
+              }
+            />
+          </div>
         </PanelBody>
       </InspectorControls>
       <div className={[...itemClasses, className].join(' ')}>
-        <RichText
-          className={titleClasses.join(' ')}
-          tagName={titleTag}
-          allowedFormats={['bold', 'italic']}
-          placeholder={__('Titulo...', 'pb')}
-          value={title}
-          onChange={value => setAttributes({ title: value })}
-        />
+        <div className="c-accordion__container">
+          <RichText
+            className={titleClasses.join(' ')}
+            tagName={titleTag}
+            placeholder={__('Titulo...', 'pb')}
+            value={title}
+            onChange={value => setAttributes({ title: value })}
+          />
+          <span
+            className="c-accordion__icon"
+            data-icon-color={buttonIconColor}
+            data-bg-color={buttonBgColor}
+            data-border-color={buttonBorderColor}
+          >
+            <svg
+              viewBox="0 0 32 32"
+              className="icon icon-chevron-bottom c-accordion__svg"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+              style={{
+                borderColor: buttonBorderColor,
+                background: buttonBgColor
+              }}
+            >
+              <path
+                d="M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z"
+                fill={buttonIconColor}
+              />
+            </svg>
+          </span>
+        </div>
         <div className="c-accordion__content">
           <InnerBlocks />
         </div>

@@ -29,12 +29,9 @@
 
     item.self = $(this);
     item.id = $(this).attr('id');
-    item.controller = $(this)
-      .children('.c-accordion__container')
-      .children('.js-accordion-controller');
+    item.controller = $(this).children('.js-accordion-controller');
     item.content = $('#' + item.controller.attr('aria-controls'));
-    console.log($(this));
-    console.log(item.controller);
+
     /**
      * Initial setup
      * Set the scroll offset, and figure out which items should be open by
@@ -80,7 +77,6 @@
      * Called when an accordion controller is clicked.
      */
     function clickHandler() {
-      console.log('click');
       // Only open the item if item isn't already open
       if (!item.self.hasClass('is-open')) {
         // Open clicked item
@@ -93,6 +89,7 @@
 
       return false;
     }
+
     /**
      * Opens an accordion item
      * Also handles accessibility attribute settings.

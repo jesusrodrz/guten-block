@@ -33,6 +33,27 @@ export default {
       source: 'children',
       selector: '.c-accordion__title'
     },
+    buttonBorderColor: {
+      type: 'string',
+      source: 'attribute',
+      attribute: 'data-border-color',
+      selector: '.c-accordion__icon',
+      default: '#777'
+    },
+    buttonBgColor: {
+      type: 'string',
+      source: 'attribute',
+      attribute: 'data-bg-color',
+      selector: '.c-accordion__icon',
+      default: 'rgba(0,0,0,0)'
+    },
+    buttonIconColor: {
+      type: 'string',
+      source: 'attribute',
+      attribute: 'data-icon-color',
+      selector: '.c-accordion__icon',
+      default: '#777'
+    },
     initiallyOpen: {
       type: 'boolean',
       default: false

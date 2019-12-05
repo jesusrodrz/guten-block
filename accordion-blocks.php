@@ -97,7 +97,8 @@ class PB_Accordion_Blocks {
 
 		wp_enqueue_script(
 			'pb-accordion-blocks-frontend-script',
-			plugins_url("js/accordion-blocks$min.js", __FILE__),
+			// plugins_url("js/accordion-blocks$min.js", __FILE__),
+			plugins_url("js/accordion-blocks.js", __FILE__),
 			array('jquery'),
 			$this->plugin_version,
 			true
