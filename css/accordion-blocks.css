@@ -39,20 +39,20 @@
 
 .c-accordion__container {
   position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .c-accordion__icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2.5rem;
-  position: absolute;
+  width: 2rem;
   top: 50%;
   right: 0;
   color: #777;
   font-weight: 300;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 
 .c-accordion__svg {
@@ -65,10 +65,12 @@
 }
 
 .c-accordion__title {
-  padding-right: 2.5rem;
-  position: relative;
-  z-index: 1;
+  margin: 0 !important;
+  margin-right: 1rem !important;
   cursor: pointer;
+}
+.c-accordion__title--editor {
+  min-width: 60%;
 }
 
 .is-open .c-accordion__svg {

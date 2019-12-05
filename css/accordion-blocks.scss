@@ -53,19 +53,22 @@ $color-open-icon: #777;
 }
 .c-accordion__container {
   position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .c-accordion__icon {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 2rem;
-  position: absolute;
+  // position: absolute;
   top: 50%;
   right: 0;
   color: $color-open-icon;
   font-weight: 300;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  // -webkit-transform: translateY(-50%);
+  // transform: translateY(-50%);
 }
 .c-accordion__svg {
   width: 100%;
@@ -76,7 +79,12 @@ $color-open-icon: #777;
   transition: transform 0.3s ease-in-out;
 }
 .c-accordion__title {
-  padding-right: 2.5rem;
+  // display: table;
+  &--editor {
+    min-width: 60%;
+  }
+  margin: 0 !important;
+  margin-right: 1rem !important;
   cursor: pointer;
 }
 

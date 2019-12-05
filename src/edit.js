@@ -54,7 +54,7 @@ const AccordionItemEdit = ({
     const { r, g, b, a } = rgb;
     return `rgba(${r},${g},${b},${a})`;
   }
-  var titleClasses = ['c-accordion__title'];
+  var titleClasses = ['c-accordion__title', 'c-accordion__title--editor'];
 
   if (titleTag === 'button') {
     titleClasses.push('c-accordion__title--button');
