@@ -70,8 +70,8 @@ $color-open-icon: #777;
   right: 0;
   color: $color-open-icon;
   font-weight: 300;
-  // -webkit-transform: translateY(-50%);
-  // transform: translateY(-50%);
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 .c-accordion__svg {
   width: 100%;
@@ -83,11 +83,13 @@ $color-open-icon: #777;
 }
 .c-accordion__title {
   // display: table;
+  position: relative;
+  z-index: 5;
   &--editor {
     min-width: 60%;
   }
   margin: 0 !important;
-  margin-right: 1rem !important;
+  padding-right: 3rem !important;
   cursor: pointer;
 }
 

@@ -26,7 +26,9 @@
     var hashID = window.location.hash.replace('#', '');
 
     var item = {};
-
+    // var controllerClass = settings.clickToClose
+    //   ? '.js-accordion-controller'
+    //   : 'c-accordion__icon';
     item.self = $(this);
     item.id = $(this).attr('id');
     item.controller = $(this)
